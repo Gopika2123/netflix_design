@@ -19,6 +19,9 @@ function Banner({fetchurl}) {
         fetchData();
     },[])
     const base_url = "https://image.tmdb.org/t/p/original/";
+    function truncate(str, n) {
+      return str?.length > n ? str.substring(0, n - 1) + "..." : str;
+  }
 
     console.log(Movie);//random movie displayed
 
@@ -29,13 +32,13 @@ function Banner({fetchurl}) {
     
     }}>
 
-     <div className='banner_contenst'>
-      <h1 className='banner_title'>
-        {Movie?.title||Movie?.name||Movie?.original_name}
-      </h1>
-      
-     
-      </div>
+<div className='banner-content'>
+              <h1 className='banner-title'>{Movie.name}</h1>
+              <p className='banner-des'>{truncate(Movie.overview, 100)}</p>
+
+
+          </div>
+          <div className="fade_bottom"> </div>
 
     </div>
   )
